@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   	   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+	<bean id="filterSecurityInterceptor" class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+	  <property name="authenticationManager" ref="authenticationManager"/>
+	  <property name="accessDecisionManager">
+	  	<bean class="org.springframework.security.access.vote.AffirmativeBased">
+	  		<constructor-arg>
+	  			<list>
+	  				<ref local="roleVoter"/>
+	  			</list>
+	  		</constructor-arg>
+	  	</bean>
+	  </property>
+	  <property name="securityMetadataSource" ref="securityMetadataSource"/>
+	</bean>
+	
+	<bean id="roleVoter" class="org.springframework.security.access.vote.RoleVoter"/>
+	
+	<bean id="securityMetadataSource" class="org.springframework.security.web.access.intercept.DefaultFilterInvocationSecurityMetadataSource">
+		<constructor-arg>
+			<map>
+				<entry value-ref="list">
+					<key>
+						<bean class="org.springframework.security.web.util.AntPathRequestMatcher">
+							<constructor-arg value="/page/login/**"/>
+						</bean>
+					</key>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="list" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<bean class="org.springframework.security.access.annotation.Jsr250SecurityConfig">
+					<constructor-arg value="ROLE_admin"/><!-- 数据库角色名称前缀Role_ -->
+				</bean>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+</beans>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	">
+	<!-- Command Server -->
+	<bean name="cmdServerExecutorServiceConfig" class="com.neusoft.trans.command.impl.DefaultExecutorServiceConfig">
+		<property name="corePoolSize" value="${cmdServer.executor.corePoolSize}" />
+		<property name="maximumPoolSize" value="${cmdServer.executor.maximumPoolSize}" />
+		<property name="keepAliveSeconds" value="${cmdServer.executor.keepAliveSeconds}" />
+		<property name="queueCapacity" value="${cmdServer.executor.queueCapacity}" />
+		<property name="threadGroupName" value="cmd-server-thread-group" />
+		<property name="threadNamePrefix" value="server-session-handler-" />
+	</bean>
+	<bean name="cmdServerContextConfig" class="com.neusoft.trans.command.impl.DefaultContextConfig">
+		<property name="ioTimeout" value="${cmdServer.ioTimeout}" />
+		<property name="idleTimeout" value="${cmdServer.idleTimeout}" />
+		<property name="bufferSize" value="${cmdServer.bufferSize}" />
+		<property name="address" value="${cmdServer.address}" />
+		<property name="port" value="${cmdServer.port}" />
+		<property name="executorServiceConfig" ref="cmdServerExecutorServiceConfig" />
+	</bean>
+	<bean name="cmdServer" class="com.neusoft.trans.command.server.impl.DefaultServer" init-method="start">
+		<constructor-arg ref="cmdServerContextConfig" />
+		<property name="cmdHandlerConfigBaseName" value="${cmdServer.cmdHandlerConfigBaseName}" />
+	</bean>
+	
+	<bean id="handler.receiveMessageHandler" class="com.neusipo.wee.bizlog.mina.ReceiveMessageCommandHandler">
+		<property name="cache" ref="sBizLogCache"/>
+	</bean>	
+</beans>

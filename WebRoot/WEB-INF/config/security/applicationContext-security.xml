@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   	   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+           
+    <bean id="springSecurityFilterChain" class="org.springframework.security.web.FilterChainProxy">
+    	<constructor-arg>
+    		<list>
+    			<bean class="org.springframework.security.web.DefaultSecurityFilterChain">
+    				<constructor-arg>
+    					<bean class="org.springframework.security.web.util.AntPathRequestMatcher">
+    						<constructor-arg value="/**"/>
+    					</bean>
+    				</constructor-arg>
+    				<constructor-arg>
+    					<list>
+    						<ref bean="securityContextPersistenceFilter"/>
+    						<ref bean="concurrencyFilter"/>
+    						<ref bean="authenticationFilter"/>
+    						<ref bean="sessionManagementFilter"/>
+    						<ref bean="exceptionTranslationFilter"/>
+    						<ref bean="filterSecurityInterceptor"/>
+    					</list>
+    				</constructor-arg>
+    			</bean>
+    		</list>
+    	</constructor-arg>
+    </bean>
+    
+</beans>

@@ -1,0 +1,94 @@
+@CHARSET "UTF-8";
+
+/*设置页面字体*/
+body{
+	font-size:13px;
+	margin:0px;
+	padding:0px;
+}
+
+/*去除li标签前面图标*/
+ul{
+	list-style:none;
+	margin-left:0px;
+	padding-left:40px;
+	border:1px solid blue;
+}
+
+
+/*除去连接下划线样式*/
+a{
+	text-decoration:none;	
+}
+
+/*图片默认情况下是顶对齐，而文字是底对齐*/
+img{
+	vertical-align:text-bottom;
+	border:0px; /*防止浏览器在图像边缘显示蓝色超链接框*/
+}
+
+/*模块隐藏*/
+.hide{
+	display:none;
+}
+
+/*模块显示*/
+.show{
+	display:block;
+}
+
+/*内容显示*/
+.envisible{
+	visibility:visiable;
+}
+
+/*内容隐藏*/
+.unvisible{
+	visibility:hidden;
+}
+
+/*文本居中对齐*/
+.text_align{
+	text-align:center;
+}
+
+/*左浮动*/
+.left{
+	float:left;
+}
+
+/*右浮动*/
+.right{
+	float:right
+}
+
+/*消除浮动*/
+.clear{
+	clear:both;
+}
+
+/*边框样式*/
+.border_style{
+	border: 1px solid #CCC;
+    border-radius: 1em;
+}
+
+.menu_bord_style{
+	border: 1px solid #CCC;
+}
+
+/*绝对位置*/
+.abosute_index{
+	position:absolute;
+	z-index:10000
+}
+
+/*系列图片截取*/
+.cut_background_img{
+	width:15px;
+	height:15px;
+	border:1px solid blue;
+	background-image:url(../img/tb-sprite.gif);
+	background-attachment:fixed; /*firefox or Opera 浏览器*/
+	background-position:-16px;
+}

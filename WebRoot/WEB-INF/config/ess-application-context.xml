@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<packages xmlns="http://www.example.org/spring-context-configuration"
+		  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		  xsi:schemaLocation="http://www.example.org/spring-context-configuration spring-context-configuration/spring-context-configuration.xsd">
+	
+	<package name="action">
+		<description>Struts action configuration</description>
+		<files>
+			<list>
+				<file>/WEB-INF/config/action/applicationContext-fastView.xml</file>
+			</list>
+		</files>
+	</package>
+	
+	<package name="cache">
+		<description>EhCache configuration </description>
+		<files>
+			<list>
+				<file>/WEB-INF/config/cache/applicationContext-ehcache.xml</file>
+			</list>
+		</files>
+	</package>
+	
+	<package name="common">
+		<description>common configuration</description>
+		<files>
+			<list>
+				<file>/WEB-INF/config/common/applicationContext-base.xml</file>
+				<file>/WEB-INF/config/common/applicationContext-db.xml</file>
+			</list>
+		</files>
+	</package>
+	
+	<package name="dao">
+		<description>data access</description>
+		<files>
+			<list>
+				<file>/WEB-INF/config/dao/applicationContext-interface-dao.xml</file>
+				<file>/WEB-INF/config/dao/applicationContext-fastView-dao.xml</file>
+			</list>
+		</files>
+	</package>
+	
+	<package name="jndi">
+		<description>JNDI configuration</description>
+		<files>
+			<list>
+				<file>/WEB-INF/config/jndi/applicationContext-jndi.xml</file>
+			</list>
+		</files>
+	</package>
+	
+	<package>
+		<description>mina configuration</description>
+		<files>
+			<list>
+				<file>/WEB-INF/config/mina/applicationContext-mina.xml</file>
+			</list>
+		</files>
+	</package>
+	
+	<package name="quartz">
+		<description>quartz configuration</description>
+		<files>
+			<list>
+				<file>/WEB-INF/config/quartz/applicationContext-quartz.xml</file>
+			</list>
+		</files>
+	</package>
+	<!-- 
+	<package name="security">
+		<description>spring security</description>
+		<files>
+			<list>
+				<file>/WEB-INF/config/security/applicationContext-security.xml</file>
+				<file>/WEB-INF/config/security/applicationContext-security-config.xml</file>
+				<file>/WEB-INF/config/security/applicationContext-security-persistent.xml</file>
+			</list>
+		</files>
+	</package>
+	-->
+	<package name="server">
+		<description>server layout</description>
+		<files>
+			<list>
+				<file>/WEB-INF/config/server/applicationContext-fastView-server.xml</file>
+				<file>/WEB-INF/config/server/applicationContext-interface-server.xml</file>
+			</list>
+		</files>
+	</package>
+	
+	<package>
+		<description>Web server configuration</description>
+		<files>
+			<list>
+				<file>/WEB-INF/config/services/applicationContext-ws.xml</file>
+			</list>
+		</files>
+	</package>
+	
+</packages>
