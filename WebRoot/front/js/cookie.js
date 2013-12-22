@@ -17,6 +17,13 @@ ESS.register("ESS.cookie",function(config){
 		this.path = config["path"] || document.location.pathname;
 		this.secure = config["secure"] || false;
 		this.stamp = config["stamp"] || Cookie.STAMP;
+		/**
+		 * the class static method transform to the object method
+		 */
+		for(var item in Cookie){
+			if(!Cookie.prototype.hasOwnProperty(item) && ESS.typeOf(Cookie[item]) === "function")
+				Cookie.prototype[item] = Cookie[item];
+		}
 	}
 	
 	Cookie.STAMP = 60*60*24*365; //one year
@@ -136,13 +143,6 @@ ESS.register("ESS.cookie",function(config){
 		if(cookie.indexOf("test=test;") > -1) return true;
 		return false;
 	};
-	/**
-	 * the class static method transform to the object method
-	 */
-	for(var item in Cookie){
-		if(!Cookie.prototype.hasOwnProperty(item) && ESS.typeOf(Cookie[item]) === "function")
-			Cookie.prototype[item] = Cookie[item];
-	}
 	
 	if(!config) return Cookie;
 	else if(ESS.typeOf(config) === 'Object')  return new Cookie(config);
