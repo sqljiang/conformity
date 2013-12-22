@@ -1,11 +1,11 @@
 /**
- * Ãû×Ö¿Õ¼ä
+ * ï¿½ï¿½ï¿½Ö¿Õ¼ï¿½
  */
 (function(){
-	//var me = window ÕâÖÖÇé¿öÊÇESS = {};
+	//var me = window ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ESS = {};
 	ESS = (function(){
 		
-		var me = this;  //¿ÉÓÃ this Ö¸ÏòµÄÊÇwindow¶ÔÏó
+		var me = this;  //ï¿½ï¿½ï¿½ï¿½ this Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½windowï¿½ï¿½ï¿½ï¿½
 		
 		if(!Object.create){
 			Object.create = function(o){
@@ -19,7 +19,7 @@
 		
 		return {
 			/**
-			 * ×¢²áÃû×Ö¿Õ¼ä²¢ÇÒ¹ØÁª²Ù×÷
+			 * ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ö¿Õ¼ä²¢ï¿½Ò¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			 * @param name
 			 * @param o
 			 */
@@ -55,28 +55,28 @@
 				return true;
 			},
 			/**
-			 * Ä£ÄâÀà¼Ì³ÐÊµÏÖ
+			 * Ä£ï¿½ï¿½ï¿½ï¿½Ì³ï¿½Êµï¿½ï¿½
 			 * @param name
-			 * @param child ±Õ°ü
+			 * @param child ï¿½Õ°ï¿½
 			 * @param parent
 			 */
 			extend:function(name,parent,child){
 				if(arguments.length != arguments.callee.length)	
 					throw new Error("the number of actual arguments is not equal the expected.");
-				if(this.isExist(name))	//ÅÐ¶ÏÃû×Ö¿Õ¼äÊÇ·ñÒÑ¾­´æÔÚ
+				if(this.isExist(name))	//ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Ö¿Õ¼ï¿½ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½
 					throw new Error("the namespace of ["+name+"] is already exist.");
-				var ps = child.prototype, p;	//±£´æ×ÓÀà¶¨ÒåµÄ·½·¨
-				child.prototype = Object.create(parent.prototype); //´´½¨¸¸ÀàµÄÔ­ÐÍ¶ÔÏó
-				for(p in ps){					//»¹Ô­×ÓÀà·½·¨
+				var ps = child.prototype, p;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¶¨ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+				child.prototype = Object.create(parent.prototype); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½Í¶ï¿½ï¿½ï¿½
+				for(p in ps){					//ï¿½ï¿½Ô­ï¿½ï¿½ï¿½à·½ï¿½ï¿½
 					child.prototype[p] = ps[p];
 				}
 				child.prototype.constructor = child;
 				this.register(name, child);
 			},
 			/**
-			 * ±éÀúÊý×é
-			 * @param array	Êý×é
-			 * @param fn	Êý×éÔªËØµ÷ÓÃ·½·¨
+			 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			 * @param array	ï¿½ï¿½ï¿½ï¿½
+			 * @param fn	ï¿½ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½ï¿½Ã·ï¿½ï¿½ï¿½
 			 * @returns
 			 */
 			each:function(array,fn){
@@ -90,9 +90,9 @@
 				}
 			},
 			/**
-			 * ·½·¨½èÓÃ
-			 * @param from	Ä¿±êÀà
-			 * @param to	½èÓÃÀà
+			 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			 * @param from	Ä¿ï¿½ï¿½ï¿½ï¿½
+			 * @param to	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			 */
 			borrow:function(from,to){
 				var name;
@@ -104,10 +104,10 @@
 				}
 			},
 			isWin:function(){
-				return me.platform == "Win32" || me.platform == "Windows";
+				return me.navigator.platform == "Win32" || me.navigator.platform == "Windows";
 			},
 			isMac:function(){
-				return me.platform == "Mac67k" || me.platform == "MacPPC" || me.platform == "Macintosh";
+				return me.navigator.platform == "Mac67k" || me.navigator.platform == "MacPPC" || me.navigator.platform == "Macintosh";
 			},
 			isUnix:function(){
 				return me.navigator.platform == "X11" && !isWin && !isMax;
@@ -163,7 +163,7 @@
 				}
 				
 				function Query(selector){
-					return new proto.init(selector);  //¸Ä±ä×÷ÓÃÓò
+					return new proto.init(selector);  //ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				}
 				//DOMElement
 				function merge(target,dist){
@@ -176,7 +176,7 @@
 					return dist;
 				}
 				/**
-				 * Í¨ÓÃÆ¥Åä½Úµã¼ä¹ØÏµ
+				 * Í¨ï¿½ï¿½Æ¥ï¿½ï¿½Úµï¿½ï¿½ï¿½Ïµ
 				 */
 				function sibling(cur,dir){
 					do{
@@ -185,7 +185,7 @@
 					return cur;
 				}
 				/**
-				 * »ñÈ¡½Úµã¼°Æä×Ó½ÚµãµÄÎÄ±¾ÄÚÈÝ
+				 * ï¿½ï¿½È¡ï¿½Úµã¼°ï¿½ï¿½ï¿½Ó½Úµï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½
 				 */
 				function getText(elem){
 					var nodeType = elem.nodeType ,content,node;
@@ -208,9 +208,9 @@
 					return content;
 				}
 				/**
-				 * CSSÑùÊ½µÄÌí¼Ó»òÉ¾³ý
+				 * CSSï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Ó»ï¿½É¾ï¿½ï¿½
 				 * @param css [string|Array]
-				 * @param handler [string] DOMTokenList ¶ÔÏó·½·¨Ãû(add »ò remove)
+				 * @param handler [string] DOMTokenList ï¿½ï¿½ï¿½ó·½·ï¿½ï¿½ï¿½(add ï¿½ï¿½ remove)
 				 */
 				function cssHandler(css,handler){
 					var cur = this[0],clazz = cur.classList,i = 0 , len = 0;
@@ -222,7 +222,7 @@
 				}
 			
 				var proto = Query.prototype = {
-					constructor:Query,  //Ã¿¸ö¶ÔÏó¶¼ÓÐÒ»¸ö´´½¨ËüµÄ¹¹Ôìº¯Êý
+					constructor:Query,  //Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ìº¯ï¿½ï¿½
 					onReady:function(fn){
 						 ESS.event.addEventListener(window,"load",fn);
 					},
@@ -260,7 +260,7 @@
 						return this;
 					},
 					/**
-					 * ½«domÔªËØ×ª»»³ÉÊý×é
+					 * ï¿½ï¿½domÔªï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					 */
 					toArray:function(){
 						return Array.prototype.slice.call(this);
@@ -272,12 +272,12 @@
 						return index === undefined || ESS.typeOf(index) != "number" ? this.toArray() : index < 0 ? this[this.length + index] : this[index];
 					},
 					/**
-					 * ³öÏÖµÄÎÊÌâÊÇ£ºµ÷ÓÃeqºóÆäËûµÄ·½·¨²»¿ÉÔÙÓÃ²¢ÇÒ»¹ÐèÒª½øÐÐµ½×Ó½Úµã
+					 * ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç£ï¿½ï¿½ï¿½ï¿½ï¿½eqï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã²ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ðµï¿½ï¿½Ó½Úµï¿½
 					 */
 					eq:function(index){
 						if(index >= this.size() || index < 0)
 							throw new SyntaxError("index out of array's bound");
-						//»¹Ã»µ½×îÖÕ½øÐÐDOM²Ù×÷,ÐèÒªÔÙ´ÎµÄ°ü¹ü
+						//ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Õ½ï¿½ï¿½ï¿½DOMï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Òªï¿½Ù´ÎµÄ°ï¿½ï¿½
 						var real = this.get(index);
 						return merge([real],this.constructor());
 					},
@@ -336,7 +336,7 @@
 						return merge(target,this.constructor());
 					},
 					val:function(val){
-						if(!argument.length){  //È¡Öµ²Ù×÷
+						if(!argument.length){  //È¡Öµï¿½ï¿½ï¿½ï¿½
 							var elem = this.get(0);
 							var val = elem.value;
 							return typeof val === "string" ? val.replace(rreturn,"") : !val ? "" : val;
@@ -404,7 +404,7 @@
 })();
 
 /**
- * AJAX ÇëÇó
+ * AJAX ï¿½ï¿½ï¿½ï¿½
  */
 ESS.register("ESS.ajax.request",function(o){
 	if(arguments.length != arguments.callee.length)
@@ -441,7 +441,7 @@ ESS.register("ESS.ajax.request",function(o){
 			throw new Error("AjaxException:"+e.message);
 		}
 	};
-	var method = o.method.toUpperCase(); //ÓÐÐ©ä¯ÀÀÆ÷²»Ö§³ÖÐ¡Ð´
+	var method = o.method.toUpperCase(); //ï¿½ï¿½Ð©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½Ð¡Ð´
 	if(o.xml) httpRequest.setHeader("Content-type","application/xml");
 	httpRequest.setRequestHeader("Cache-control", o.cache-type | "no-cache");
 	switch(method){
@@ -605,7 +605,7 @@ ESS.register("ESS.JSON",function(){
 		},
 		decode : function(value, replacer, space){
 			if(me.JSON.stringify && typeof me.JSON.stringify === "function") return me.JSON.stringify(value,replacer,space);
-			var indent; 	//JSON×Ö·û´®¸ñÊ½Ëõ½ø
+			var indent; 	//JSONï¿½Ö·ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½
 			if(typeof space === "number"){
 				for(i = 0 ; i < space ; i++){
 					indent += ' ';
@@ -613,7 +613,7 @@ ESS.register("ESS.JSON",function(){
 			}else if(typeof space === "string"){
 				indent = space;
 			}
-			//replacer ±ØÐëÊÇfunction»òÕßÊÇarray
+			//replacer ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½functionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½array
 			if(replacer && typeof replacer !== "function" && 
 					(typeof replacer !== "object" || typeof replacer.length !== "number")) 
 				throw Error("ESS.JSON.decode");
@@ -624,24 +624,24 @@ ESS.register("ESS.JSON",function(){
 }());
 
 /**
- * ²»Í¬ä¯ÀÀÆ÷Ö®¼äEventTargetÖÐµÄ·½·¨²»Í¬£¬ESS.event.Util¶ÔÏóÊµÏÖä¯ÀÀÆ÷¼äEventTarget·½·¨µÄÍ³Ò»
+ * ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½EventTargetï¿½ÐµÄ·ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ESS.event.Utilï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½EventTargetï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³Ò»
  */
 ESS.register("ESS.event",function(){
 	
 	var me = this;
 	
 	/**
-	 * Í³Ò»Event¶ÔÏóÊôÐÔ»ò·½·¨
+	 * Í³Ò»Eventï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô»ò·½·ï¿½
 	 */
 	function unifyEvent(e){
 		/**
-		 * ÓÐ¸öÌØ±ðÐèÒª×¢ÒâµÄµØ·½Ê±£¬IEä¯ÀÀÆ÷³ýÁËmouserupµÄevent.button = 2Ö®ÍâÆäËûµÄ¾ùÎª0
+		 * ï¿½Ð¸ï¿½ï¿½Ø±ï¿½ï¿½ï¿½Òª×¢ï¿½ï¿½ÄµØ·ï¿½Ê±ï¿½ï¿½IEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mouserupï¿½ï¿½event.button = 2Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½Îª0
 		 */
 		if(ESS.isIE && ESS.isWin){
 			e.charCode = (e.type == "keyPress") ? e.keycode : 0;
 			e.eventPhase = 2;
 			e.isChar = (e.charCode > 0);
-			//IEµÄÇé¿ö
+			//IEï¿½ï¿½ï¿½ï¿½ï¿½
 			e.pageX = e.clientX + me.document.scrollLeft | me.document.documentElement.scrollLeft;
 			e.pageY = e.clientY + me.document.scrollTop | me.document.documentElement.scrollLef;
 			e.preventDefault = function(){
@@ -674,8 +674,8 @@ ESS.register("ESS.event",function(){
 			else elem["on"+type] = null;
 		},
 		/**
-		 * °ü×°ÊÂ¼þÖ´ÐÐº¯Êý
-		 * @param handler ÊÂ¼þÖ´ÐÐº¯Êý
+		 * ï¿½ï¿½×°ï¿½Â¼ï¿½Ö´ï¿½Ðºï¿½ï¿½ï¿½
+		 * @param handler ï¿½Â¼ï¿½Ö´ï¿½Ðºï¿½ï¿½ï¿½
 		 * @returns
 		 */
 		wrapperEventHandler:function(handler){
@@ -704,9 +704,9 @@ ESS.register("ESS.dom",function(){
 	
 	return {
 		/**
-		 * »ñÈ¡ÑùÊ½Öµ
-		 * @param elem Ä¿±êÔªËØ
-		 * @param attr Ä¿±êÊôÐÔ
+		 * ï¿½ï¿½È¡ï¿½ï¿½Ê½Öµ
+		 * @param elem Ä¿ï¿½ï¿½Ôªï¿½ï¿½
+		 * @param attr Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		 * @returns
 		 */
 		getStyle:function(elem,attr){
@@ -758,7 +758,7 @@ ESS.register("ESS.dom",function(){
 			
 			prot.init.prototype = prot;
 			
-			return Query; //Ìá¹©Ò»¸ö·½·¨ÒýÓÃ,ÒýÓÃ·½·¨µ÷ÓÃºó£¬·µ»ØÒ»¸ö¶ÔÏó£¬°üº¬¸÷ÖÖ²Ù×÷º¯Êý
+			return Query; //ï¿½á¹©Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãºó£¬·ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬°ï¿½ï¿½ï¿½Ö²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		}(),
 		render:function(){
 			
