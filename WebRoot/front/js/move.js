@@ -1,5 +1,5 @@
 /**
- * ÒÆ¶¯Dom
+ * ï¿½Æ¶ï¿½Dom
  */
 ESS.event.addEventListener(window,"load",function(e){
 	var main = document.getElementById("main"),
@@ -8,11 +8,11 @@ ESS.event.addEventListener(window,"load",function(e){
 		top = parseInt(ESS.dom.getStyle(main,"top")),
 		orignX,orignY,flag = false;
 	/*
-	 * ËÄÖÖÇé¿ö£¨°üº¬ÌØÊâÇé¿ö£©
-	 * 1¡¢×óÉÏ·½ÒÆ¶¯  left += dw (dw < 0),top += dh (dh < 0)
-	 * 2¡¢ÓÒÉÏ·½ÒÆ¶¯ left += dw (dw > 0),top += dh (dh < 0)
-	 * 3¡¢×óÏÂ·½ÒÆ¶¯ left += dw (dw < 0), top += dh (dh > 0)
-	 * 4¡¢ÓÒÏÂ·½ÒÆ¶¯ left += dw (dw > 0), top += dh (dh >0)
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * 1ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½Æ¶ï¿½  left += dw (dw < 0),top += dh (dh < 0)
+	 * 2ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½Æ¶ï¿½ left += dw (dw > 0),top += dh (dh < 0)
+	 * 3ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½Æ¶ï¿½ left += dw (dw < 0), top += dh (dh > 0)
+	 * 4ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½Æ¶ï¿½ left += dw (dw > 0), top += dh (dh >0)
 	 */
 	ESS.event.addEventListener(head,"mousemove",function(e){
 		head.style.cursor = "move";
@@ -26,7 +26,7 @@ ESS.event.addEventListener(window,"load",function(e){
 				clientHeight = document.documentElement.clientHeight;
 			orignX = e.clientX;
 			orignY = e.clientY;
-			/*·¶Î§ÏÞ¶¨*/
+			/*ï¿½ï¿½Î§ï¿½Þ¶ï¿½*/
 			left = (left += dw) < 0? 0 : left + w > clientWidth ? clientWidth - w : left;
 			top = (top += dh ) < 0 ? 0 : top + h > clientHeight ? clientHeight - h : top;
 			ESS.dom.setStyle(parent,"left",left+"px");
@@ -38,9 +38,11 @@ ESS.event.addEventListener(window,"load",function(e){
 		flag = true;
 		orignX = e.clientX;
 		orignY = e.clientY;
+		ESS.setCapture(head);
 	});
 	
 	ESS.event.addEventListener(head,"mouseup",function(e){
+		ESS.releaseCapture(head);
 		head.style.cursor = "default";
 		flag = false;
 	});
