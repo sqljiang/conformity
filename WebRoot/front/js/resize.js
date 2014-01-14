@@ -1,5 +1,5 @@
 /**
- *¿¼ÂÇÒÆ¶¯ÊÇ¹Ì¶¨Êó±êÒÆ¶¯·¶Î§ 
+ *ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½Ç¹Ì¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½Î§ 
  */
 ESS.event.addEventListener(window,"load",function(e){
 	var resize = document.getElementById("resize");
@@ -11,68 +11,68 @@ ESS.event.addEventListener(window,"load",function(e){
 	    topBorder =  parseInt(ESS.dom.getStyle(resize,"borderTopWidth")),
 	    bottomBorder = parseInt(ESS.dom.getStyle(resize,"borderBottomWidth")),
 		direction ={
-			left:function(elem,left,top,width,height,dw,dh){ //×ó±ß½ç
+			left:function(elem,left,top,width,height,dw,dh){ //ï¿½ï¿½ï¿½ß½ï¿½
 				left += dw;
 				width -= dw;
 				ESS.dom.setStyle(elem,"left",left+"px");
 				ESS.dom.setStyle(elem,"width",width+"px");
 			},
-			right:function(elem,left,top,width,height,dw,dh){ //ÓÒ±ß½ç
+			right:function(elem,left,top,width,height,dw,dh){ //ï¿½Ò±ß½ï¿½
 				width += dw;
 				ESS.dom.setStyle(elem,"width",width+"px");
 			},
-			top:function(elem,left,top,width,height,dw,dh){ //ÉÏ±ß½ç
+			top:function(elem,left,top,width,height,dw,dh){ //ï¿½Ï±ß½ï¿½
 				top += dh;
 				height -= dh;
 				ESS.dom.setStyle(elem,"top",top+"px");
 				ESS.dom.setStyle(elem,"height",height+"px");
 			},
-			bottom:function(elem,left,top,width,height,dw,dh){ //µ×±ß½ç
+			bottom:function(elem,left,top,width,height,dw,dh){ //ï¿½×±ß½ï¿½
 				height += dh;
 				ESS.dom.setStyle(elem,"height",height+"px");
 			},
-			left_top:function(elem,left,top,width,height,dw,dh){ //×óÉÏ½Ç
+			left_top:function(elem,left,top,width,height,dw,dh){ //ï¿½ï¿½ï¿½Ï½ï¿½
 				left(elem,left,width,dw);
 				top(elem,top,height,dh);
 			},
-			right_top:function(elem,left,top,width,height,dw,dh){ //ÓÒÉÏ½Ç
+			right_top:function(elem,left,top,width,height,dw,dh){ //ï¿½ï¿½ï¿½Ï½ï¿½
 				right(elem,width,dw);
 				top(elem,top,height,dh);
 			},
-			left_bottom:function(elem,left,top,width,height,dw,dh){ //×óÏÂ½Ç
+			left_bottom:function(elem,left,top,width,height,dw,dh){ //ï¿½ï¿½ï¿½Â½ï¿½
 				left(elem,left,width,dw);
 				bottom(elem,height,dh);
 			},
-			right_bottom:function(elem,left,top,width,height,dw,dh){ //ÓÒÏÂ½Ç
+			right_bottom:function(elem,left,top,width,height,dw,dh){ //ï¿½ï¿½ï¿½Â½ï¿½
 				right(elem,width,dw);
 				bottom(elem,height,dh);
 			}
 		};
-	function region(elem,e){ //½ûÖ¹ÇøÓò
+	function region(elem,e){ //ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
 		if(left + leftBorder + 2 < e.clientX && 
 			   e.clientX < left + resize.offsetWidth - rightBorder -2 && 
 			   top + topBorder + 2 < e.clientY && 
 			   e.clientY < top + resize.offsetHeight - bottomBorder -2) return true;
 		return false;
 	}
-	function bound(elem,e){ //2px ¸ÐÓ¦Çø
-		if(e.clientX <= left + leftBorder + 2 || left + resize.offsetWidth - rightBorder - 2 <= e.clientX){ //×óÓÒ±ß¿ò
+	function bound(elem,e){ //2px ï¿½ï¿½Ó¦ï¿½ï¿½
+		if(e.clientX <= left + leftBorder + 2 || left + resize.offsetWidth - rightBorder - 2 <= e.clientX){ //ï¿½ï¿½ï¿½Ò±ß¿ï¿½
 			resize.style.cursor = "ew-resize";
 			e.clientX <= left + leftBorder + 2 ? dirc = "left" : dirc = "right";
 		}
-		if(e.clientY <= top + topBorder + 2 || top + resize.offsetHeight - bottomBorder - 2 <= e.clientY){ //´¹Ö±±ß¿ò
+		if(e.clientY <= top + topBorder + 2 || top + resize.offsetHeight - bottomBorder - 2 <= e.clientY){ //ï¿½ï¿½Ö±ï¿½ß¿ï¿½
 			resize.style.cursor = "ns-resize";
 			e.clientY <= top + topBorder + 2 ? dirc = "top" : dirc = "bottom";
 		}
 		if(e.clientX == left && e.clientY == top || 
 		   e.clientX == left + resize.offsetWidth && 
-		   e.clientY == top + resize.offsetHeight){ //×óÉÏ(ÓÒÏÂ)½Ç
+		   e.clientY == top + resize.offsetHeight){ //ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½
 			resize.style.cursor = "nwse-resize";
 			e.clientX == left ? dirc = "left_top" : dirc = "right_bottom";
 		}else if(e.clientX == left + resize.offsetWidth && 
 				 e.clientY == top  || 
 				 e.clientX == left && 
-				 e.clientY == top + resize.offsetHeight){  //ÓÒÉÏ(×óÏÂ)½Ç
+				 e.clientY == top + resize.offsetHeight){  //ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½
 			resize.style.cursor = "nesw-resize";
 			e.clientY == top ? dirc = "right_top" : dirc = "left_bottom";
 		}
@@ -103,9 +103,11 @@ ESS.event.addEventListener(window,"load",function(e){
 		orignX = e.clientX;
 		orignY = e.clientY;
 		rs = true;
+		ESS.setCapture();
 	});
 	ESS.event.addEventListener(resize,"mouseup",function(e){
 		rs = false;
+		ESS.releaseCapture();
 	});
 	ESS.event.addEventListener(resize,"mouseout",function(e){
 		resize.style.cursor = "default";
