@@ -147,6 +147,12 @@
                                         return arg.constructor.prototype.classname;
                                 return "<unknow type>";
                         },
+                        setCapture : function(){ //元素捕获鼠标（拖动、收缩等效果实现使用）
+                                var target = arguments[0] ;
+                                if(target && target.setCapture) target.setCapture();
+                                else if(window.captureEvents) window.captureEvents(Event.MOUSEMOVE | Event.MOUSEUP);
+                                else throw new Error("can't capture the mouse");
+                        },
                         query:function(){
                                 
                                 var rquickExpr = /^(?:([\w\-]+)|#([\w\-]*)|\.([\w\-]+))$/;  //id or tag or class
