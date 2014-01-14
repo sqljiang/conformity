@@ -153,6 +153,12 @@
                                 else if(window.captureEvents) window.captureEvents(Event.MOUSEMOVE | Event.MOUSEUP);
                                 else throw new Error("can't capture the mouse");
                         },
+                        releaseCapture:function(){  //释放元素捕获鼠标
+                                var target = arguments[0];
+                                if(target && target.releaseCapture) target.releaseCapture();
+                                else if(window.releaseEvents) releaseEvents(Event.MOUSEMOVE | Event.MOUSEUP);
+                                else throw new Error("release the capture of mouse failure.");
+                        },
                         query:function(){
                                 
                                 var rquickExpr = /^(?:([\w\-]+)|#([\w\-]*)|\.([\w\-]+))$/;  //id or tag or class
